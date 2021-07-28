@@ -4,6 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:paddingTop="0dp"
     tools:context=".SubActivity2">
+
+    <DatePicker
+        android:id="@+id/date1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleX="1.2"
+        android:scaleY="1.20"
+        android:layout_marginLeft="-50dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginRight="-50dp"
+        android:layout_marginBottom="-30dp"
+        android:layout_gravity="center_horizontal|top"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:startYear="2021" />
+    <GridView
+        android:id="@+id/grid_letter"
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:scrollbars="horizontal"
+        android:layout_height="match_parent"
+        android:numColumns="3"/>
 
 </LinearLayout>
