@@ -11,16 +11,18 @@
         android:theme="@style/Theme.Project_LBM" >
         <activity android:name=".activity_home" >
         </activity>
-        <activity android:name=".SubActivity2" />
-        <activity
-            android:name=".Splash"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait">
+        <activity android:name=".SubActivity2" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+
         </activity>
 
         <activity android:name=".MainActivity"/>
