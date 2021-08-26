@@ -13,6 +13,7 @@
         android:padding="10dp"/>
 
     <TextView
+        android:id="@+id/latter"
         android:layout_alignRight="@id/img2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,26 +24,101 @@
         android:textColor="#000000"
         android:textSize="23dp" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="내용을 입력해 주세요"/>
+
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="2dp"
         android:layout_marginTop="30dp"
         android:padding="180dp" />
 
     <Button
         android:id="@+id/letter"
-        android:layout_width="wrap_content"
+        android:layout_width="148dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="147dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="157dp"
+        android:layout_marginRight="150dp"
+        android:gravity="center"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        app:backgroundTint="#F3BF26"
         android:text="편지 보내기"
+        app:backgroundTint="#F3BF26"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_gravity="center" >
+
+        <Button
+            android:id="@+id/signaldocentcolor1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/resource_file"
+            android:backgroundTint="#FF0000"
+            app:backgroundTint="#FB0000" />
+
+        <Button
+            android:id="@+id/signaldocentcolor2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/resource_file"
+            android:backgroundTint="#FF9800"
+            app:backgroundTint="#FF9800" />
+
+        <Button
+            android:id="@+id/signaldocentcolor3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/resource_file"
+            android:backgroundTint="#4CAF50"
+            app:backgroundTint="#8BC34A" />
+
+        <Button
+            android:id="@+id/signaldocentcolor4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/resource_file"
+            android:backgroundTint="#3F51B5"
+            app:backgroundTint="#3F51B5" />
+
+        <Button
+            android:id="@+id/signaldocentcolor5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/resource_file"
+            android:backgroundTint="#FF0000"
+            app:backgroundTint="#673AB7" />
+
+        <Button
+            android:id="@+id/signaldocentcolor6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/resource_file"
+            android:backgroundTint="#FF0000"
+            app:backgroundTint="#D3B1DC" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
