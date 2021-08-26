@@ -5,11 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home"
+        android:padding="10dp"/>
+
     <TextView
         android:id="@+id/send_mail_set"
         android:text="@string/send_mail_set"
         android:textSize="28dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/send_mail_day"
+        android:text="@string/send_mail_day"
+        android:textSize="24dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/send_mail_interval"
+        android:text="@string/send_mail_interval"
+        android:textSize="24dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
