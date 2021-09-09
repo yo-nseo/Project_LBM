@@ -13,7 +13,6 @@
         android:padding="10dp"/>
 
     <TextView
-        android:id="@+id/latter"
         android:layout_alignRight="@id/img2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,37 +23,37 @@
         android:textColor="#000000"
         android:textSize="23dp" />
 
-    <ImageView
-        android:id="@+id/img3"
-        android:layout_width="500dp"
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="450dp"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:src="@drawable/red"/>
+        android:layout_marginTop="10dp">
 
-<!--    <Button-->
-<!--        android:id="@+id/button3"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="400dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:text="내용을 입력해 주세요"/>-->
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="30dp"
-        android:padding="180dp" />
+        <ImageView
+            android:id="@+id/imgV"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/red"/>
+
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="글씨를 입력하세요"
+            android:gravity="top"/>
+
+    </FrameLayout>
 
     <Button
-        android:id="@+id/letter"
+        android:id="@+id/send"
         android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="157dp"
         android:layout_marginRight="150dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
@@ -68,11 +67,11 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:layout_gravity="center" >
+        android:layout_margin="25dp"
+        android:layout_gravity="center">
 
         <Button
-            android:id="@+id/signaldocentcolor1"
+            android:id="@+id/red"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
@@ -81,7 +80,7 @@
             app:backgroundTint="#FB0000" />
 
         <Button
-            android:id="@+id/signaldocentcolor2"
+            android:id="@+id/yellow"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
@@ -90,7 +89,7 @@
             app:backgroundTint="#FF9800" />
 
         <Button
-            android:id="@+id/signaldocentcolor3"
+            android:id="@+id/green"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
@@ -99,7 +98,7 @@
             app:backgroundTint="#8BC34A" />
 
         <Button
-            android:id="@+id/signaldocentcolor4"
+            android:id="@+id/blue"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
@@ -108,7 +107,7 @@
             app:backgroundTint="#3F51B5" />
 
         <Button
-            android:id="@+id/signaldocentcolor5"
+            android:id="@+id/purple"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
@@ -117,13 +116,13 @@
             app:backgroundTint="#673AB7" />
 
         <Button
-            android:id="@+id/signaldocentcolor6"
+            android:id="@+id/pink"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
             android:background="@drawable/resource_file"
             android:backgroundTint="#FF0000"
-            app:backgroundTint="#D3B1DC" />
+            app:backgroundTint="#632A18" />
 
     </LinearLayout>
 
