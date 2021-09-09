@@ -3,6 +3,7 @@
     <string name="send_mail_set">편지 발송 설정</string>
     <string name="send_mail_day">발송 요일</string>
     <string name="send_mail_interval">발송 간격</string>
+    <string name="random_mail_set">랜덤 발송</string>
     <string name="text">직접 작성했던 편지가 지금 도착했습니다.!
         밑의 버튼을 눌러서 지금 바로 확인해보세요
         편지를 읽고 간단한 답변도 달아볼 수 있어요</string>
