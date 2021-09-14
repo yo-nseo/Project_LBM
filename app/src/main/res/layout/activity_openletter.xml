@@ -29,7 +29,7 @@
             android:layout_width="300dp"
             android:layout_height="430dp"
             android:layout_gravity="center"
-           android:src="@drawable/blue" />
+            android:src="@drawable/blue" />
 
         <TextView
             android:layout_width="300dp"

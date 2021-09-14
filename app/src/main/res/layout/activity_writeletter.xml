@@ -38,10 +38,11 @@
             android:src="@drawable/red"/>
 
         <EditText
+            android:id="@+id/Edit1"
             android:layout_width="320dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="글씨를 입력하세요"
+            android:hint="글씨를 입력하세요"
             android:gravity="top"/>
 
     </FrameLayout>
