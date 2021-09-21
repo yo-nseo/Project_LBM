@@ -46,7 +46,7 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="147dp"
@@ -88,13 +88,14 @@
         android:textSize="40px" />
 
     <Button
+        android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:layout_marginTop="20dp"
-        android:text="열어 보기"
+        android:text="편지 쓰기"
         app:backgroundTint="#E85E5E"
         android:gravity="center" />
 
