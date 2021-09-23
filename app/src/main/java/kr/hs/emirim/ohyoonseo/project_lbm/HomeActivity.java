@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -16,9 +16,11 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
-public class SubActivity2 extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     ImageButton menu;
     GridView gridL;
     GridAdapter adapter;
@@ -28,9 +30,17 @@ public class SubActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sub2);
+        setContentView(R.layout.activity_home);
         menu = findViewById(R.id.dot3);
+        FloatingActionButton addLetter = findViewById(R.id.add_write);
         registerForContextMenu(menu);
+        addLetter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),activity_openletter.class);
+                startActivity(intent);
+            }
+        });
 
         // 데이터 가져옴
         gridL = findViewById(R.id.grid_letter);
@@ -62,7 +72,7 @@ public class SubActivity2 extends AppCompatActivity {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                AlertDialog dir = new AlertDialog.Builder(SubActivity2.this)
+                AlertDialog dir = new AlertDialog.Builder(HomeActivity.this)
                         .setTitle("편지삭제")
                         .setMessage(td.get(position)+"편지를 정말 삭제하시겠습니까?")
                         .setPositiveButton("삭제", new DialogInterface.OnClickListener() {
@@ -77,6 +87,15 @@ public class SubActivity2 extends AppCompatActivity {
                 return false;
             }
         });
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerForContextMenu(menu);
+                openContextMenu(menu);
+                unregisterForContextMenu(menu);
+            }
+        });
     }
 
     @Override
@@ -87,6 +106,7 @@ public class SubActivity2 extends AppCompatActivity {
         inflater.inflate(R.menu.sub2_menu, menu);
     }
 
+
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         super.onContextItemSelected(item);
@@ -94,7 +114,7 @@ public class SubActivity2 extends AppCompatActivity {
             case R.id.item_setting:
                 return true;
             case R.id.item_del:
-                Toast.makeText(SubActivity2.this,"편지를 길게 누르면 삭제됩니다",Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this,"편지를 길게 누르면 삭제됩니다",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item_sort:
                 return true;

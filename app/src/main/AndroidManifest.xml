@@ -11,8 +11,8 @@
         android:theme="@style/Theme.Project_LBM">
         <activity android:name=".activity_openletter"></activity>
         <activity android:name=".WriteActivity" />
-        <activity android:name=".activity_home" />
-        <activity android:name=".SubActivity2"/>
+        <activity android:name=".StartActivity" />
+        <activity android:name=".HomeActivity"/>
 
         <activity
             android:name=".Splash"
@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity" />
     </application>
 

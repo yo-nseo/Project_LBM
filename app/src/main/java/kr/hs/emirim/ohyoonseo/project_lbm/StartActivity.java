@@ -3,11 +3,11 @@ package kr.hs.emirim.ohyoonseo.project_lbm;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class activity_home extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_start);
     }
 }

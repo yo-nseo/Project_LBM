@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn1:
                     startActivity(new Intent(v.getContext(), WriteActivity.class));
+                    break;
                 case R.id.btn2:
                     startActivity(new Intent(v.getContext(), activity_openletter.class));
+                    break;
 
             }
         }

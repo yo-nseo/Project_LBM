@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img1"
+        android:id="@+id/open_home_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/home"
@@ -46,7 +46,7 @@
     </FrameLayout>
 
     <Button
-        android:id="@+id/letter"
+        android:id="@+id/send_letter"
         android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -56,7 +56,7 @@
         android:gravity="center"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:text="편지 보내기"
+        android:text="읽기 완료"
         app:backgroundTint="#2463E1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
