@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -30,6 +31,7 @@
             android:text="@string/send_mail_set"
             android:textColor="#000000"
             android:textSize="28dp" />
+        
 
         <TextView
             android:id="@+id/send_mail_day"
@@ -65,9 +67,9 @@
 
         <RadioButton
             android:id="@+id/mail_send2"
-            android:layout_marginTop="150dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp" />
 
     </RadioGroup>
 
@@ -89,6 +91,7 @@
             android:textColor="#000000"
             android:textSize="28dp" />
 
+
         <TextView
             android:id="@+id/alarm_text1"
             android:layout_width="wrap_content"
@@ -97,6 +100,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/send_mail_day"
             android:textSize="24dp" />
+
 
         <TextView
             android:id="@+id/alarm_text2"
@@ -108,13 +112,50 @@
             android:textSize="24dp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linear_alarm_setup"
+        android:layout_width="198dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_push_email">
+
+        <TextView
+            android:id="@+id/alarm_setup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:text="@string/alarm_setup"
+            android:textColor="#000000"
+            android:textSize="28dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="482dp" />
+
+        <TextView
+            android:id="@+id/alarm_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/alarm_on"
+            android:textSize="24dp" />
+
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.15" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="301dp"
+        tools:layout_editor_absoluteY="496dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,6 @@
     <string name="item3">정렬</string>
     <string name="item3_1">오름차순</string>
     <string name="item3_2">내림차순</string>
+    <string name="alarm_setup">알림 설정</string>
+    <string name="alarm_on">알림켜기</string>
 </resources>
