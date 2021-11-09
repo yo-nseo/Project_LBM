@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class Splash extends Activity {
+public class  Splash extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,11 +14,11 @@ public class Splash extends Activity {
         setContentView(R.layout.activity_splash);
 
         Handler hd = new Handler();
-        hd.postDelayed(new splashhandler(), 3000); // 1초 후에 hd handler 실행  3000ms = 3초
+        hd.postDelayed(new handler(), 3000);
 
     }
 
-    private class splashhandler implements Runnable{
+    private class handler implements Runnable{
         public void run(){
             startActivity(new Intent(getApplication(), MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
             Splash.this.finish(); // 로딩페이지 Activity stack에서 제거
