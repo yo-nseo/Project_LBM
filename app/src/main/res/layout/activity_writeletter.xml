@@ -117,7 +117,7 @@
             app:backgroundTint="#673AB7" />
 
         <Button
-            android:id="@+id/pink"
+            android:id="@+id/brown"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
