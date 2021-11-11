@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -24,13 +28,16 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton menu;
     GridView gridL;
     GridAdapter adapter;
-
+    LBM_database myHelper;
     ArrayList<testDate> td;
-
+    SQLiteDatabase sqlDB;
+    Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        myHelper = new LBM_database(this);
+        sqlDB = myHelper.getReadableDatabase();
         menu = findViewById(R.id.dot3);
         FloatingActionButton addLetter = findViewById(R.id.add_write);
         registerForContextMenu(menu);
@@ -41,39 +48,18 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        cursor = sqlDB.rawQuery("SELECT * FROM groupTBL;", null);
 
         // 데이터 가져옴
         gridL = findViewById(R.id.grid_letter);
 
         td = new ArrayList<>();
-        td.add(new testDate("2021.07.31"));
-        td.add(new testDate("2021.08.10"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.07.31"));
-        td.add(new testDate("2021.08.10"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.07.31"));
-        td.add(new testDate("2021.08.10"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.07.31"));
-        td.add(new testDate("2021.08.10"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.08.21"));
-        td.add(new testDate("2021.07.31"));
-        td.add(new testDate("2021.08.10"));
-        td.add(new testDate("2021.08.21"));
+        while(cursor.moveToNext()){
+            td.add(new testDate(cursor.getString(0)));
+        }
 
         adapter = new GridAdapter(this,td);
         gridL.setAdapter(adapter);
-
-        gridL.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // 아이템 클릭햇을때 엑티비티 이동
-            }
-        });
 
         gridL.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
 
@@ -112,6 +98,7 @@ public class HomeActivity extends AppCompatActivity {
         menu.setHeaderTitle(R.string.menu_title);
         inflater.inflate(R.menu.sub2_menu, menu);
     }
+
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
