@@ -67,7 +67,13 @@ public class WriteActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(listener);
 
         red.setOnClickListener(colorlistener);
-        yellow.setOnClickListener(colorlistener);
+        yellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "노랑클릭", Toast.LENGTH_SHORT).show();
+                imageView.setImageResource(R.drawable.yellow);
+            }
+        });
         green.setOnClickListener(colorlistener);
         blue.setOnClickListener(colorlistener);
         purple.setOnClickListener(colorlistener);
@@ -78,12 +84,14 @@ public class WriteActivity extends AppCompatActivity {
     View.OnClickListener colorlistener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+
+            /*switch (v.getId()){
                 case R.id.red:
                     color = 1;
                     imageView.setImageResource(R.drawable.red);
                     break;
                 case R.id.yellow:
+//                    Log.i("노랑색", "클릭됨");
                     color = 2;
                     imageView.setImageResource(R.drawable.yellow);
                     break;
@@ -104,7 +112,7 @@ public class WriteActivity extends AppCompatActivity {
                     imageView.setImageResource(R.drawable.brown);
                     break;
 
-            }
+            }*/
         }
     };
 
@@ -122,6 +130,8 @@ public class WriteActivity extends AppCompatActivity {
                 sqlDB = myHelper.getWritableDatabase();
                 sqlDB.execSQL("INSERT INTO groupTBL VALUES( '"+formatedNow+"', '"+text+"',"+color+");");
                 sqlDB.close();
+                Log.i("테스트","완료");
+
 
             }
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
