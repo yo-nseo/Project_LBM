@@ -41,9 +41,23 @@ public class WriteActivity extends AppCompatActivity {
     Button send;
     LBM_database myHelper=new LBM_database(this);;
     SQLiteDatabase sqlDB;
-    @Override
+    Button red, yellow, green, blue, purple, brown;
+    ImageView imageView;
+    int color = 1;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_writeletter);
+
+        red = findViewById(R.id.red);
+        yellow = findViewById(R.id.yellow);
+        green = findViewById(R.id.green);
+        blue = findViewById(R.id.blue);
+        purple = findViewById(R.id.purple);
+        brown = findViewById(R.id.brown);
+
+        imageView = findViewById(R.id.imgV);
+
         update();
         setContentView(R.layout.activity_writeletter);
         ImageView homeBtn = findViewById(R.id.write_home_btn);
@@ -52,8 +66,50 @@ public class WriteActivity extends AppCompatActivity {
         send.setOnClickListener(listener);
         homeBtn.setOnClickListener(listener);
 
+        red.setOnClickListener(colorlistener);
+        yellow.setOnClickListener(colorlistener);
+        green.setOnClickListener(colorlistener);
+        blue.setOnClickListener(colorlistener);
+        purple.setOnClickListener(colorlistener);
+        brown.setOnClickListener(colorlistener);
     }
+
+
+    View.OnClickListener colorlistener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.red:
+                    color = 1;
+                    imageView.setImageResource(R.drawable.red);
+                    break;
+                case R.id.yellow:
+                    color = 2;
+                    imageView.setImageResource(R.drawable.yellow);
+                    break;
+                case R.id.green:
+                    color = 3;
+                    imageView.setImageResource(R.drawable.green);
+                    break;
+                case R.id.blue:
+                    color = 4;
+                    imageView.setImageResource(R.drawable.blue);
+                    break;
+                case R.id.purple:
+                    color = 5;
+                    imageView.setImageResource(R.drawable.purple);
+                    break;
+                case R.id.brown:
+                    color = 6;
+                    imageView.setImageResource(R.drawable.brown);
+                    break;
+
+            }
+        }
+    };
+
     View.OnClickListener listener = new View.OnClickListener() {
+
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.send){
@@ -62,7 +118,7 @@ public class WriteActivity extends AppCompatActivity {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String formatedNow = formatter.format(now);
                 String text = edit1.getText().toString();
-                int color = 1;
+                int letter_color = color;
                 sqlDB = myHelper.getWritableDatabase();
                 sqlDB.execSQL("INSERT INTO groupTBL VALUES( '"+formatedNow+"', '"+text+"',"+color+");");
                 sqlDB.close();
