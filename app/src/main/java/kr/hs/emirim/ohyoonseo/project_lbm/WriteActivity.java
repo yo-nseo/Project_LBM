@@ -66,8 +66,6 @@ public class WriteActivity extends AppCompatActivity {
                 sqlDB = myHelper.getWritableDatabase();
                 sqlDB.execSQL("INSERT INTO groupTBL VALUES( '"+formatedNow+"', '"+text+"',"+color+");");
                 sqlDB.close();
-                Log.i("테스트","완료");
-
 
             }
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

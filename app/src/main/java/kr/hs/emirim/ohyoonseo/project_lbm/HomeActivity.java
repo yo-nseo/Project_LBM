@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -30,30 +32,32 @@ public class HomeActivity extends AppCompatActivity {
     GridAdapter adapter;
     LBM_database myHelper;
     ArrayList<testDate> td;
-    SQLiteDatabase sqlDB;
+    SQLiteDatabase rsqlDB, wsqlDB;
     Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         myHelper = new LBM_database(this);
-        sqlDB = myHelper.getReadableDatabase();
+        rsqlDB = myHelper.getReadableDatabase();    // 디비 읽기
+        wsqlDB = myHelper.getWritableDatabase();    // 디비수정
         menu = findViewById(R.id.dot3);
         FloatingActionButton addLetter = findViewById(R.id.add_write);
         registerForContextMenu(menu);
+
         addLetter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),activity_openletter.class);
+                Intent intent = new Intent(getApplicationContext(),WriteActivity.class);
                 startActivity(intent);
             }
         });
-        cursor = sqlDB.rawQuery("SELECT * FROM groupTBL;", null);
+        cursor = rsqlDB.rawQuery("SELECT * FROM groupTBL;", null);
 
         // 데이터 가져옴
         gridL = findViewById(R.id.grid_letter);
 
-        td = new ArrayList<>();
+        td = new ArrayList<>();     // 편지데이터
         while(cursor.moveToNext()){
             td.add(new testDate(cursor.getString(0)));
         }
@@ -61,6 +65,17 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new GridAdapter(this,td);
         gridL.setAdapter(adapter);
 
+        gridL.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 보내기
+                Intent intent = new Intent(getApplicationContext(),activity_openletter.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("date",td.get(position).toString());
+                intent.putExtras(bundle);       // 데이터 보내기
+                startActivity(intent);
+            }
+        });
         gridL.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
 
             @Override
