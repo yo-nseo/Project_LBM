@@ -61,13 +61,6 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new GridAdapter(this,td);
         gridL.setAdapter(adapter);
 
-        gridL.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // 아이템 클릭햇을때 엑티비티 이동
-            }
-        });
-
         gridL.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
 
             @Override
@@ -105,6 +98,7 @@ public class HomeActivity extends AppCompatActivity {
         menu.setHeaderTitle(R.string.menu_title);
         inflater.inflate(R.menu.sub2_menu, menu);
     }
+
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
