@@ -14,7 +14,7 @@ class LBM_database extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        db.execSQL("DROP TABLE IF EXISTS groupTBL;");
+        db.execSQL("DROP TABLE IF EXISTS groupTB;");
         onCreate(db);
     }
 }

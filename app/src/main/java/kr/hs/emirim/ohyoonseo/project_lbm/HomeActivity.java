@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -57,8 +58,10 @@ public class HomeActivity extends AppCompatActivity {
         // 데이터 가져옴
         gridL = findViewById(R.id.grid_letter);
 
+
         td = new ArrayList<>();     // 편지데이터
         while(cursor.moveToNext()){
+            Log.i("TAG", "onCreate: "+cursor.getString(0));
             td.add(new testDate(cursor.getString(0)));
         }
 
@@ -69,10 +72,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 보내기
+                Log.i("TAG", "onItemClick: "+td.get(position).toString());
                 Intent intent = new Intent(getApplicationContext(),activity_openletter.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("date",td.get(position).toString());
-                intent.putExtras(bundle);       // 데이터 보내기
+//                Bundle bundle = new Bundle();
+//                bundle.putString("date",td.get(position).toString());
+//                intent.putExtras(bundle);       // 데이터 보내기
+                intent.putExtra("date1", td.get(position).toString());
                 startActivity(intent);
             }
         });
@@ -104,6 +109,9 @@ public class HomeActivity extends AppCompatActivity {
                 unregisterForContextMenu(menu);
             }
         });
+        cursor.close();
+        rsqlDB.close();
+        wsqlDB.close();
     }
 
     @Override

@@ -1,33 +1,14 @@
 package kr.hs.emirim.ohyoonseo.project_lbm;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +20,7 @@ import android.widget.Toast;
 public class WriteActivity extends AppCompatActivity {
     EditText edit1;
     Button send;
-    LBM_database myHelper=new LBM_database(this);;
+    LBM_database myHelper=new LBM_database(this);
     SQLiteDatabase sqlDB;
     Button red, yellow, green, blue, purple, brown;
     ImageView imageView;
@@ -48,17 +29,24 @@ public class WriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writeletter);
+        ArrayList<Button> colorsButton = new ArrayList<>();
+        ArrayList<Integer> colorsResolse = new ArrayList<Integer>();
 
-        red = findViewById(R.id.red);
-        yellow = findViewById(R.id.yellow);
-        green = findViewById(R.id.green);
-        blue = findViewById(R.id.blue);
-        purple = findViewById(R.id.purple);
-        brown = findViewById(R.id.brown);
-
+        colorsButton.add(findViewById(R.id.red));
+        colorsButton.add(findViewById(R.id.yellow));
+        colorsButton.add(findViewById(R.id.green));
+        colorsButton.add(findViewById(R.id.blue));
+        colorsButton.add(findViewById(R.id.purple));
+        colorsButton.add(findViewById(R.id.brown));
         imageView = findViewById(R.id.imgV);
 
-        update();
+        colorsResolse.add(R.drawable.color_red);
+        colorsResolse.add(R.drawable.color_yellow);
+        colorsResolse.add(R.drawable.color_green);
+        colorsResolse.add(R.drawable.color_blue);
+        colorsResolse.add(R.drawable.color_purple);
+        colorsResolse.add(R.drawable.color_brown);
+
         setContentView(R.layout.activity_writeletter);
         ImageView homeBtn = findViewById(R.id.write_home_btn);
         edit1 = findViewById(R.id.Edit1);
@@ -71,7 +59,7 @@ public class WriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "노랑클릭", Toast.LENGTH_SHORT).show();
-                imageView.setImageResource(R.drawable.yellow);
+                imageView.setImageResource(R.drawable.color_yellow);
             }
         });
         green.setOnClickListener(colorlistener);
