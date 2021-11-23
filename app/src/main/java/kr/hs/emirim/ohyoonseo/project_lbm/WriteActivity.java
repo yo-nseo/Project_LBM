@@ -22,7 +22,6 @@ public class WriteActivity extends AppCompatActivity {
     Button send;
     LBM_database myHelper=new LBM_database(this);
     SQLiteDatabase sqlDB;
-    Button red, yellow, green, blue, purple, brown;
     ImageView imageView;
     int color = 1;
 
@@ -54,18 +53,10 @@ public class WriteActivity extends AppCompatActivity {
         send.setOnClickListener(listener);
         homeBtn.setOnClickListener(listener);
 
-        red.setOnClickListener(colorlistener);
-        yellow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "노랑클릭", Toast.LENGTH_SHORT).show();
-                imageView.setImageResource(R.drawable.color_yellow);
-            }
-        });
-        green.setOnClickListener(colorlistener);
-        blue.setOnClickListener(colorlistener);
-        purple.setOnClickListener(colorlistener);
-        brown.setOnClickListener(colorlistener);
+        for(int i=0; i<colorsButton.size(); i++){
+            colorsButton.get(i).setOnClickListener(colorlistener);
+        }
+
     }
 
 
@@ -73,34 +64,6 @@ public class WriteActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            /*switch (v.getId()){
-                case R.id.red:
-                    color = 1;
-                    imageView.setImageResource(R.drawable.red);
-                    break;
-                case R.id.yellow:
-//                    Log.i("노랑색", "클릭됨");
-                    color = 2;
-                    imageView.setImageResource(R.drawable.yellow);
-                    break;
-                case R.id.green:
-                    color = 3;
-                    imageView.setImageResource(R.drawable.green);
-                    break;
-                case R.id.blue:
-                    color = 4;
-                    imageView.setImageResource(R.drawable.blue);
-                    break;
-                case R.id.purple:
-                    color = 5;
-                    imageView.setImageResource(R.drawable.purple);
-                    break;
-                case R.id.brown:
-                    color = 6;
-                    imageView.setImageResource(R.drawable.brown);
-                    break;
-
-            }*/
         }
     };
 

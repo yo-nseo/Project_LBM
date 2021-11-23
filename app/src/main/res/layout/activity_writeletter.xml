@@ -86,8 +86,8 @@
             android:layout_height="30dp"
             android:layout_margin="5dp"
             android:background="@drawable/resource_file"
-            android:backgroundTint="#FF9800"
-            app:backgroundTint="#FF9800" />
+            android:backgroundTint="#FFFB00"
+            app:backgroundTint="#FFFB00" />
 
         <Button
             android:id="@+id/green"
