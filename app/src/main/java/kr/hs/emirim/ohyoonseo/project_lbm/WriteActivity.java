@@ -47,7 +47,6 @@ public class WriteActivity extends AppCompatActivity {
 
 
         for(int i=0; i<colorsButton.size(); i++){
-            Log.i("버튼 리스너 설정",i + "");
             colorsButton.get(i).setOnClickListener(colorbtnlistener);
         }
 
@@ -60,12 +59,10 @@ public class WriteActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.red:
-                    Log.i("버튼 색상","빨강");
                     imageView.setImageResource(R.drawable.color_red);
                     color = 1;
                     break;
                 case R.id.yellow:
-                    Log.i("버튼 색상","노랑");
                     imageView.setImageResource(R.drawable.color_yellow);
                     color = 2;
                     break;
@@ -103,7 +100,6 @@ public class WriteActivity extends AppCompatActivity {
                 sqlDB = myHelper.getWritableDatabase();
                 sqlDB.execSQL("INSERT INTO groupTBL VALUES( '"+formatedNow+"', '"+text+"',"+color+");");
                 sqlDB.close();
-                Log.i("테스트","완료");
 
 
             }
