@@ -90,7 +90,7 @@ public class WriteActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == R.id.send){
+            if (v.getId() == R.id.send) {
                 //디비 저장
                 Date now = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -98,20 +98,18 @@ public class WriteActivity extends AppCompatActivity {
                 String text = edit1.getText().toString();
                 int letter_color = color;
                 sqlDB = myHelper.getWritableDatabase();
-                sqlDB.execSQL("INSERT INTO groupTBL VALUES( '"+formatedNow+"', '"+text+"',"+color+");");
+                sqlDB.execSQL("INSERT INTO groupTBL VALUES( '" + formatedNow + "', '" + text + "'," + color + ");");
                 sqlDB.close();
-
-
             }
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+            }
+        };
+
+
+        public void update(){
+            sqlDB = myHelper.getWritableDatabase();
+            myHelper.onUpgrade(sqlDB, 1,2);
+            sqlDB.close();
         }
-    };
-
-
-    public void update(){
-        sqlDB = myHelper.getWritableDatabase();
-        myHelper.onUpgrade(sqlDB, 1,2);
-        sqlDB.close();
     }
-}
