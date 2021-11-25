@@ -29,6 +29,7 @@ public class activity_openletter extends AppCompatActivity {
         ImageView home_btn = findViewById(R.id.open_home_btn);
         Button sendBtn = findViewById(R.id.send_letter);
         TextView context = findViewById(R.id.open_textView);
+        ImageView imgv = findViewById(R.id.imgR);
         int colorkey;
         home_btn.setOnClickListener(goHomeListener);
         sendBtn.setOnClickListener(goHomeListener);
@@ -37,16 +38,17 @@ public class activity_openletter extends AppCompatActivity {
         Cursor cursor;
 
         String thisdate = intent.getStringExtra("date1");
-        Log.i("TAG", "onCreate: "+thisdate);
         cursor = rsqlDB.rawQuery("SELECT text,color FROM groupTBL WHERE date = '"+thisdate+"';",null);
-        //select * from tb where date = '값';
 
         while(cursor.moveToNext()){
             context.setText(cursor.getString(0));
-            colorkey = cursor.getInt(1);   // 컬러이미지가져와서 넣기
+            colorkey = cursor.getInt(1);
+            switch (colorkey){
+                case 1:
+                    imgv.setImageResource(R.drawable.color_red);
+            }
         }
         cursor.close();
-        // 컬러 코드에 맞게 이미지 바꿔서 백그라운드 넣기
     }
     View.OnClickListener goHomeListener = new View.OnClickListener() {
         @Override
