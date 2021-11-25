@@ -29,7 +29,6 @@ public class WriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writeletter);
         ArrayList<Button> colorsButton = new ArrayList<>();
-        ArrayList<Integer> colorsResolse = new ArrayList<Integer>();
 
         colorsButton.add(findViewById(R.id.red));
         colorsButton.add(findViewById(R.id.yellow));
@@ -39,31 +38,54 @@ public class WriteActivity extends AppCompatActivity {
         colorsButton.add(findViewById(R.id.brown));
         imageView = findViewById(R.id.imgV);
 
-        colorsResolse.add(R.drawable.color_red);
-        colorsResolse.add(R.drawable.color_yellow);
-        colorsResolse.add(R.drawable.color_green);
-        colorsResolse.add(R.drawable.color_blue);
-        colorsResolse.add(R.drawable.color_purple);
-        colorsResolse.add(R.drawable.color_brown);
 
-        setContentView(R.layout.activity_writeletter);
         ImageView homeBtn = findViewById(R.id.write_home_btn);
         edit1 = findViewById(R.id.Edit1);
         send = findViewById(R.id.send);
         send.setOnClickListener(listener);
         homeBtn.setOnClickListener(listener);
 
+
         for(int i=0; i<colorsButton.size(); i++){
-            colorsButton.get(i).setOnClickListener(colorlistener);
+            Log.i("버튼 리스너 설정",i + "");
+            colorsButton.get(i).setOnClickListener(colorbtnlistener);
         }
 
     }
 
 
-    View.OnClickListener colorlistener = new View.OnClickListener() {
+
+    View.OnClickListener colorbtnlistener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            switch (v.getId()){
+                case R.id.red:
+                    Log.i("버튼 색상","빨강");
+                    imageView.setImageResource(R.drawable.color_red);
+                    color = 1;
+                    break;
+                case R.id.yellow:
+                    Log.i("버튼 색상","노랑");
+                    imageView.setImageResource(R.drawable.color_yellow);
+                    color = 2;
+                    break;
+                case R.id.green:
+                    imageView.setImageResource(R.drawable.color_green);
+                    color = 3;
+                    break;
+                case R.id.blue:
+                    imageView.setImageResource(R.drawable.color_blue);
+                    color = 4;
+                    break;
+                case R.id.purple:
+                    imageView.setImageResource(R.drawable.color_purple);
+                    color = 5;
+                    break;
+                case R.id.brown:
+                    imageView.setImageResource(R.drawable.color_brown);
+                    color = 6;
+                    break;
+            }
         }
     };
 
