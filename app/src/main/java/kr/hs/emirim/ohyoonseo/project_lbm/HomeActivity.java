@@ -14,10 +14,12 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<testDate> td;
     SQLiteDatabase rsqlDB, wsqlDB;
     Cursor cursor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,10 +127,27 @@ public class HomeActivity extends AppCompatActivity {
 
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater menu2 = getMenuInflater();
+        menu2.inflate(R.menu.sub2_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         super.onContextItemSelected(item);
         switch (item.getItemId()){
             case R.id.item_setting:
+                final String[] versionArrray = new String[] {"월요일","화요일","수요일","목요일","금요일","토요일","일요일"}
+                AlertDialog.Builder dlg = new AlertDialog.Builder(HomeActivity.this);
+                dlg.setTitle("편지데이선택");
+                dlg.setSingleChoiceItems(versionArrray, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) { button1.setTitle(versionArrray[which]);
+                    
+                    }
+                })
                 return true;
             case R.id.item_del:
                 Toast.makeText(HomeActivity.this,"편지를 길게 누르면 삭제됩니다",Toast.LENGTH_SHORT).show();
